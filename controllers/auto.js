@@ -27,13 +27,6 @@ const BTCclient = new bitcoin.Client({
 	timeout: config.BTC.timeout
 });
 
-cron.schedule('30 */10 * * * *', function(){
-  Auto_Confirm_Withdraw();
-});
-cron.schedule('30 */2 * * * *', function(){
-  Auto_Confirm_Deposit();
-});
-
 
 
 function update_status_deposit(_id,status,confirmations,callback){
