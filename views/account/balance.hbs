@@ -1,0 +1,115 @@
+<div class="content wallet" ng-controller="balance_wallet">
+   <div class="container-fluid" >
+
+      <div class="row">
+
+         <div class="col-md-12">
+
+            <div class="card">
+               <div class="header">
+                  <h4 style="font-weight: 500">ACCOUNT BALANCES
+
+                  </h4>
+                 
+               </div>
+
+               
+               <div class="content balance_page">
+                  <table class="table table-bordered table-hover" border="1" cellpadding="0" cellspacing="0"  style="border-collapse:collapse;"  >
+                     <thead>
+                        <tr>
+                           <th style="text-align: center;min-width:77px;" ><i class="ti-plus"></i></th>
+                           <th>Currency Name</th>
+                           <th >Symbol</th>
+                           <th>Available Balance</th>
+                           <th class="hidden-xs">Pending Deposit</th>
+                        </tr>
+                        <tr>
+                           <td class="text-center">
+                              <span class="btn-primary" data-toggle="modal" data-target="#modalDepositLEC">Deposit</span>
+                              <span class="btn-primary withdraw_button" data-toggle="modal" data-target="#modalWithdrawLEC">Withdraw</span>
+                           </td>
+                           <td>Lencoin</td>
+                           <td>LEC</td>
+                           <td>{{satoshi user.balance.coin_wallet.available}}</td>
+                           <td class="hidden-xs">{{satoshi balance.lec}}</td>
+                        </tr>
+                        <tr>
+                           <td class="text-center">
+                              <span class="btn-primary" data-toggle="modal" data-target="#modalDepositBTC">Deposit</span>
+                              <span class="btn-primary withdraw_button" data-toggle="modal" data-target="#modalWithdrawBTC">Withdraw</span>
+                           </td>
+                           <td>Bitcoin</td>
+                           <td>BTC</td>
+                           <td>{{satoshi user.balance.bitcoin_wallet.available}}</td>
+                           <td class="hidden-xs">{{satoshi balance.btc}}</td>
+                        </tr>
+                        
+                     </thead>
+                     <tbody>
+                        
+                     </tbody>
+                  </table>
+
+                  <div class="clearfix"></div>
+                  <div class="row">
+
+                     <div class="col-md-12">
+                        <h4 class="pull-left" style="font-weight: 500">PENDING DEPOSITS</h4>
+                        
+                        <div id="history-deposit-pending"></div>
+                     </div>
+
+                     <div class="col-md-12">
+                        <h4 class="pull-left" style="font-weight: 500">PENDING WITHDRAWALS</h4>
+                        
+                        <div id="history-withdraw-pendding"></div>
+                        
+                     </div>
+
+                     <div class="col-md-12">
+                        <h4 class="pull-left" style="font-weight: 500">WITHDRAWAL HISTORY</h4>
+                         
+                        <div id="history-withdraw-finish"></div>
+                       
+                     </div>
+
+                     <div class="col-md-12">
+                        <h4 class="pull-left" style="font-weight: 500">DEPOSIT HISTORY</h4>
+                        
+                        <div id="history-deposit-finish"></div>
+                        
+                     </div>
+
+                  </div>
+
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<style type="text/css">
+@media screen and (max-width: 768px){
+   span.dtr-data a{
+        width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+   }
+   table.dataTable.dtr-inline.collapsed>tbody>tr.parent>td:first-child:before, table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before{
+      content: '-';
+    color: #ed362c;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 19px;
+   }
+   table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before, table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before{
+          font-size: 18px;
+    font-weight: 900;
+    line-height: 19px;
+   }
+}
+</style>

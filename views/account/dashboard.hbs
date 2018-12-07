@@ -1,0 +1,159 @@
+<div class="content">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-8 col-md-push-2">
+            <div class="">
+               <div class="content">
+                  <div class="row">
+                     <div class="col-xs-12">
+                        <div class="">
+                           <p>Refferal link:</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="card-footer">
+                  <div class="input-group">
+                     <span class="input-group-btn">
+                        <button class="btn btn-social btn-fill btn-twitter copy" data-clipboard-action="copy" data-clipboard-target="#link" type="button">
+                           <div class="icon dripicons-copy"></div>
+                           Copy 
+                        </button>
+                     </span>
+                     <input id="link" readonly="" type="text"  class="form-control refferal_link" value=""> 
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="clearfix" style="height: 40px;"></div>
+      <div class="row">
+         <div class="col-md-4 col-sm-6">
+            <div class="item_balance darkblue">
+               <p>Lencoin Wallet</p>
+               <h5>{{satoshi user.balance.coin_wallet.available}} LEC</h5>
+            </div>
+         </div>
+         <div class="col-md-4 col-sm-6">
+            <div class="item_balance teal">
+               <p>Bitcoin Wallet</p>
+               <h5>{{satoshi user.balance.bitcoin_wallet.available}} BTC</h5>
+            </div>
+         </div>
+         <div class="col-md-4 col-sm-6">
+            <div class="item_balance olivedrab">
+               <p>Lending Wallet</p>
+               <h5>{{user.balance.lending_wallet.available}} USD</h5>
+               
+            </div>
+         </div>
+         
+         <div class="col-md-4 col-sm-6">
+            <div class="item_balance peru">
+               <p>Active Investment</p>
+               <h5>{{user.total_invest}} USD</h5>
+            </div>
+         </div>
+         <div class="col-md-4 col-sm-6">
+            <div class="item_balance red">
+               <p>Total Earned</p>
+               <h5>{{user.total_earn}} USD</h5>
+            </div>
+         </div>
+         <div class="col-md-4 col-sm-6">
+            <div class="item_balance">
+               <p>Total Capital back</p>
+               <h5>0 USD</h5>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class=" col-md-6  panel-group accordion" id="letcoin-wallet-accordion-parent">
+            <div class="panel" style="border: 1px solid #c2c8d8;">
+               <div id="letcoin-wallet-accord" class="panel-collapse collapse in" aria-expanded="true" style="">
+                  <div class="panel-body" style="margin-top: 0">
+                     <h3 class="mtn" style="color:orange">Receive Lencoin (LEC)</h3>
+                     <p>Get address to accept Lencoin payments</p>
+                     <button type="button" class="btn btn-social btn-fill btn-twitter get_letcoin_deposit_address mt3 fs14 deposits" data-wallet="LEC" data-toggle="modal" data-target="#ModalDeposit">
+                     <i class="fa  progress-icon fa-bitcoin1" data-icon="fa-bitcoin1" style="margin: -4px;margin-right: 0!important;margin-left: 0px;"></i> Deposit Lencoin (LEC)
+                     </button>
+                     <button type="button" class="btn btn-social btn-fill btn-twitter get_letcoin_deposit_address mt3 fs14 deposits" data-wallet="BTC" data-toggle="modal" data-target="#ModalDeposit">
+                     <i class="fa  progress-icon fa-bitcoin1" data-icon="fa-bitcoin1" style="margin: -4px;margin-right: 0!important;margin-left: 0px;"></i> Deposit Bitcoin (BTC)
+                     </button>
+                     
+                     <button class="btn btn-social btn-fill btn-twitter"  data-toggle="modal" data-target="#ModalTransfer" ><i class="fa fa-exchange" aria-hidden="true" ></i>  Convert USD to LEC </button>
+                  </div>
+                  <div class="panel-body" style="margin-top: 0">
+                     <h3 class="mtn" style="color:orange">Lend Lencoin/Reinvest</h3>
+                     <button class="btn btn-social btn-fill btn-twitter" data-toggle="modal"  data-target="#ModalInvest" > <i class="ti-view-grid"></i> Lending Lencoin </button>   <button class="btn btn-social btn-fill btn-twitter" > <i class="ti-view-grid"></i> Reinvest </button> 
+                     <br /><br />
+                     <P> You will receive daily profit based on your investment option. Upon investment term completion, you will receive your CAPITAL BACK to take out from the Lencoin lending platform or optionally reinvest back in lending platform to continue receiving daily profit. </P>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class=" col-md-6  panel-group accordion" >
+            <div class="panel" style="border: 1px solid #c2c8d8;">
+               <div class="panel-body" style="margin-top: 0">
+                  <div id="withdraw_coin_dashboard">
+                     <h3 class="mtn" style="color:orange">Send Lencoin (LEC)</h3>
+                     <div class="response"></div>
+                     <form method="post" action="/account/withdraw" accept-charset="utf-8" id="frmWithdrawCOIN_Dashboard" class="send-coin-form" autocomplete="off" onsubmit="return false" novalidate="novalidate">
+                        <div class="form-group">
+                           <label class="control-label" for="to_coin_address">To address</label>
+                           <div class="input-group">
+                              <span class="input-group-btn">
+                              <span class="btn btn-social btn-fill btn-twitter" disabled=""><i class="fa fa-chain"></i></span>
+                              </span>
+                              <input autocomplete="off" class="form-control" type="text" name="to_coin_address" id="ast_wallet" placeholder="Lencoin Address">
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label" for="to_coin_address">Quantity in Lencoin</label>
+                           <div class="input-group">
+                              <div class="input-group-btn vat">
+                                 <span class="btn btn-social btn-fill btn-twitter" disabled=""><i class="fa fa-chain"></i></span>
+                              </div>
+                              <input autocomplete="off" class="form-control" type="text" name="amount_coin" id="amount_coin_withdraw" placeholder="Lencoin Amount">
+                              
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label" for="to_coin_address">Password</label>
+                           <div class="input-group">
+                              <div class="input-group-btn vat">
+                                 <span class="btn btn-social btn-fill btn-twitter" disabled=""><i class="fa fa-key"></i></span>
+                              </div>
+                              <input autocomplete="off" class="form-control" type="password" name="password" id="send_password" placeholder="Enter your password" aria-required="true" aria-invalid="false">
+                           </div>
+                        </div>
+                        <div class="form-group text-center">
+
+                           <div class="alert alert alert-danger alert-dismissable" style="display: none;">
+                              <a class="close" data-dismiss="alert">×</a>
+                              <span class="message"></span>
+                           </div>
+                        </div>
+
+                        <div class="form-group text-center">
+                           <button type="submit" class="btn btn-social btn-fill btn-twitter"  data-type="coin"><i class="fa fa-bitcoin  progress-icon fa-lg" data-icon="fa-bitcoin" style="background-position: right;filter: brightness(0) invert(1)"></i> Send Lencoin
+                           </button>
+                        </div>
+                     </form>
+                     
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- <div class="row">
+      <div class="col-md-12">
+         <div class="panel" style="border: 1px solid #c2c8d8;">
+            <div class="panel-body" style="margin-top: 0">
+               <h3></h3>
+            </div>
+         </div>
+      </div>
+   </div> -->
+</div>

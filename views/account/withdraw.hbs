@@ -1,0 +1,92 @@
+<div class="content">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-6">
+            <div class="card">
+               <form  id="frmWithdrawCOIN">
+                  <div class="header">
+                     <h4 class="title"> Withdraw Santacoin </h4>
+                  </div>
+                  <div class="content">
+                     <div class="form-group"> <label>Recipient</label> <input type="text" placeholder="Enter a STC address" id="ast_wallet" class="form-control"> </div>
+                     <div class="well">
+                        <div class="text-black"> <img src="/static/img/ast.png" alt="STC" style=" width: 30px;">  SantaCoin Wallet : <strong> <span class="balnace_coin">{{user.balance.coin_wallet.available}} STC</span> </strong> </div>
+                     </div>
+                     <div class="well">
+                        <div class="text-black"> Exchange rate : <strong>1 STC</strong> = <strong> <span class="one_bitcoin_equal_dollar price_ast_usd">{{user.balance.coin_wallet.last}} </span> USD</strong>  </div>
+                     </div>
+                     <div class="form-group">
+                        <div class="row">
+                           <div class="col-sm-12"> <label>Amount</label>  <span class="text-danger small"> (Min withdraw 0.5 STC)</span></div>
+                           <div class="col-sm-6 col-xs-6">
+                              <div class="input-group"> <input type="text" class="form-control" placeholder="0.00" id="amount_coin_withdraw" name="amount_coin"> <span class="input-group-addon">STC</span> </div>
+                           </div>
+                           <div class="col-sm-6 col-xs-6">
+                              <div class="input-group"> <input type="text" class="form-control" placeholder="0.00" id="amount_usd_coin_withdraw" readonly name="amount_usd"> <span class="input-group-addon">USD</span> </div>
+                           </div>
+                        </div>
+                     </div>
+                     
+                     <div class="text-center"> <button type="button" class="btn btn-fill btn-default WithdrawSubmit"  data-type="coin">Confirm Withdraw STC</button> </div>
+                  </div>
+               </form>
+            </div>
+            <!-- end card --> 
+         </div>
+      <div class="col-md-6 " >
+		   <div class="card">
+		      <form  id="frmWithdraw-btc">
+		         <div class="header">
+		            <h4 class="title"> Withdraw Bitcoin </h4>
+		         </div>
+		         <div class="content">
+		         <span id="Error-send-btc-wallet"></span>
+		            <div class="form-group"> <label>Recipient</label> <input type="text" placeholder="Enter a BTC address" id="send-btc-wallet" name="send-btc-wallet" class="form-control"> </div>
+		            <div class="well">
+		               <div class="text-black"> <img src="/static/img/BTC.png" alt="BTC" style=" width: 30px;">  USD Wallet : <strong> <span class="balnace_coin">{{user.balance.lending_wallet.available}} USD</span> </strong> </div>
+		            </div>
+		            <div class="well">
+		               <div class="text-black"> Exchange rate : <strong>1 BTC</strong> = <strong> <span class="one_bitcoin_equal_dollar price_btc_usd">0 USD</span> </strong> </div>
+		            </div>
+		            <div class="form-group">
+		               <div class="row">
+		                  <div class="col-sm-12"> <label>Amount USD</label><span class="text-danger small"> (Min withdraw 50 USD)</span> <span id="Error-send-btc"></span></div>
+		                  <div class="col-sm-6 col-xs-6">
+		                     <div class="input-group"> <input type="text" class="form-control" placeholder="0.00" id="send-usd-amount" name="send-usd-amount"> <span class="input-group-addon">USD</span> </div>
+		                  </div>
+		                  <div class="col-sm-6 col-xs-6">
+		                     <div class="input-group"> <input type="text" class="form-control" placeholder="0.00" id="send-btc-usd" readonly name="send-btc-usd"> <span class="input-group-addon">BTC</span> </div>
+		                  </div>
+		               </div>
+		            </div>
+                  <div class="well">
+                        <i class="text-danger">Fee 0.001 BTC</i>
+                     </div>
+		            <div class="text-center"> <button type="button" class="btn btn-fill btn-default"  id="SendBtcSubmit"  disabled="" data-type="coin">Confirm Withdraw BTC</button> </div>
+		         </div>
+		         <div class="SendCommingsoon" > <div class="box-center"> <div class="img-circle"> Withdraw Bitcoin from USD Wallet </div> <h5>Open 1st and 15th of every month</h5> </div> </div>
+		      </form>
+		   </div>
+		</div>
+      </div>
+      <div class="row">
+         <div class="col-md-12">
+            <div class="card">
+               <div class="content" id="your_withdraw">
+                  <p >Your Withdraw</p>
+                  <div class="no-transaction text-center">
+                     <div class="img-circle"> <img src="/static/img/1758-200.png" alt="Coin" > </div>
+                     <h2>No transactions</h2>
+                     <p>Looks like there isn't any transaction in your account yet. </p>
+                  </div>
+               </div>
+               <!-- end content--> 
+            </div>
+            <!--  end card  --> 
+         </div>
+      </div>
+   </div>
+</div>
+<div class="content">
+   <div class="container-fluid"> </div>
+</div>

@@ -1,0 +1,97 @@
+<div class="content">
+   <div class="container-fluid">
+      
+
+      <div class="row">
+         <div class="col-md-8 col-md-push-2">
+            <div class="card card-user">
+               <div class="author"> <a href="#pablo"> <img class="img avatar" src="/images/person-icon-8.png"> </a> </div>
+               <div class="content" style="min-height: auto">
+                  <h4 class="title">{{user.displayName}}</h4>
+                  <p class="description"> Email: <strong>{{user.email}}</strong> </p>
+                  <a href="javascript:void(0)" class="btn btn-rose btn-round Logout"> <i class="ti-power-off"></i> Logout</a> 
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-8 col-md-push-2">
+            <div class="content">
+               <div class="card card-user" style="padding: 25px 15px;">
+                        <table class=" " style="margin-bottom: 0; border: 0; width: 100%">
+                                 <tbody>
+                                    <tr>
+                                       <td class="text-center"><input name="GAKey" value="JA3LOWSUQ4LGWIDL" type="hidden"> Google Authenticator </td>
+                                    </tr>
+                                    
+                                    {{#if_eq user.security.two_factor_auth.status '0'}} 
+                                    <tr>
+                                       <td>
+                                          <div class="row">
+                                             <div class="col-xs-12 text-center" style="margin-top: 20px">Use this key: <br> <strong style="word-break:break-all; display:block">{{user.security.two_factor_auth.code}}</strong> </div>
+                                             <div class="col-xs-12  text-center" style=""><span class="label label-default">OR</span></div>
+                                             <div class="col-xs-12  text-center"> Scan QR Code<br> <img src="{{qr_code_authy}}" width="200"> </div>
+                                          </div>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td>
+                                          <div class="">
+                                             <p class="text-warning" style="word-break:break-all; display:block"> Note: Write down this key <code >{{user.security.two_factor_auth.code}}</code> on the paper and store it safe. You will need it if you lose or change your device. </p>
+                                          </div>
+                                       </td>
+                                    </tr>
+                                    {{/if_eq}} 
+                                 </tbody>
+                                 <tfoot>
+                                    <tr>
+                                       <td class="text-center">
+                                          <div class="form-group text-center"> <label class="text-center">Input code from application:</label> <input name="GACode" id="account_frm_GACode" value="" size="20" class="form-control text-center" type="text"> </div>
+
+                                          <div class="form-group text-center">
+                                             <div class="alert alert alert-danger alert-dismissable authy" style="display: none;">
+                                                <a class="close" data-dismiss="alert">×</a>
+                                                <span class="message"></span>
+                                             </div>
+                                          </div>
+
+                                          <div class="text-center"> {{#if_eq user.security.two_factor_auth.status '0'}} <button type="submit" class="btn btn-primary" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Function" id="btn_frm_GACode">Activate</button> {{else}} <button type="submit" class="btn btn-danger" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Function" id="btn_frm_GACode">Disable</button> {{/if_eq}} </div>
+                                       </td>
+                                    </tr>
+                                 </tfoot>
+                              </table>
+                  </div>
+               </div>
+            </div>
+      </div>
+      <div class="row">
+         <div class="col-md-8 col-md-push-2">
+            <div class="content">
+               <div class="card card-user" style="padding: 25px 15px;">
+                  <form  id="frmChangePassword" action="#" method="">
+                     <div class="content">
+                        <div class="form-group label-floating text-left"> <label class="control-label"> Old Password <small></small> </label> <input class="form-control" name="oldpassword" id="oldPassword" type="password" required="true"> </div>
+                        <div class="form-group label-floating  text-left"> <label class="control-label"> New Password <small></small> </label> <input class="form-control" name="newPassword" id="newPassword" type="password" required="true"> </div>
+                        <div class="form-group label-floating  text-left"> <label class="control-label"> Confirm New Password <small></small> </label> <input class="form-control" name="cfpassword" id="cfpassword" type="password" required="true" equalto="#registerPassword"> </div>
+                        <div class="form-group text-center">
+
+                           <div class="alert alert alert-danger alert-dismissable" style="display: none;">
+                              <a class="close" data-dismiss="alert">×</a>
+                              <span class="message"></span>
+                           </div>
+                        </div>
+                        <div class="text-center "> <button type="submit" class="btn btn-rose btn-fill"  data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Function" >Save Changes</button> </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+
+         
+      </div>
+   </div>
+</div>

@@ -1,0 +1,139 @@
+<div class="content">
+   <div class="container-fluid">
+      
+      <div class="clearfix"></div> 
+         
+            <div class="col-md-6 col-sm-6">
+               <div class="item_balance darkblue">
+                  <p>Lencoin Wallet</p>
+                  <h5>{{satoshi user.balance.coin_wallet.available}} LEC</h5>
+                  <button type="button" style="background: #0a5f7b" class="btn btn-social btn-fill btn-twitter  mt3 fs14 deposits" data-toggle="modal"  data-wallet="LEC" data-toggle="modal" data-target="#ModalDeposit">
+                     <i class="fa  progress-icon fa-bitcoin1" data-icon="fa-bitcoin1" style="margin: -4px;margin-right: 0!important;margin-left: 0px;
+                     "></i> Deposit LEC
+                     </button>
+               </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6">
+               <div class="item_balance teal">
+                  <p>Bitcoin Wallet</p>
+                  <h5>{{satoshi user.balance.bitcoin_wallet.available}} BTC</h5>
+                  <button type="button" style="background: #0a5f7b" class="btn btn-social btn-fill btn-twitter  mt3 fs14 deposits" data-toggle="modal" data-wallet="BTC" data-toggle="modal" data-target="#ModalDeposit">
+                     <i class="fa  progress-icon fa-bitcoin1" data-icon="fa-bitcoin1" style="margin: -4px;margin-right: 0!important;margin-left: 0px;
+                     "></i> Deposit BTC
+                     </button>
+               </div>
+            </div>
+      
+         <div class="clearfix"></div>
+         <!-- <div class=" col-md-12  panel-group accordion" >
+            <div class="panel" style="border: 1px solid #c2c8d8;">
+               <div class="panel-body" style="margin-top: 0">
+                  <div class="col-md-12 col-xs-12 text-center">
+                    
+                     <p>Time remaining</p>
+                     <div class="text-center">
+                        <div id="clockdiv_ico_end" style="">
+                           <div><span class="days">19</span><div class="smalltext">Days</div></div>
+                           <div><span class="hours">12</span><div class="smalltext">Hours</div></div>
+                           <div><span class="minutes">14</span><div class="smalltext">Minutes</div></div>
+                           <div><span class="seconds">36</span><div class="smalltext">Seconds</div></div>
+                       </div>
+                     </div>
+                     <div class="clearfix"></div>
+
+                  </div>
+                  <div class="clearfix"></div>
+                  
+                  <div class="col-md-8 col-xs-12 text-center">
+                     {{#if_eq total_ico.status '0'}}
+                     <h3 style="color:orange">Opening time for sale</h3>
+                     <div class="text-center">
+                     
+                        <div id="clockdiv_ico_day">
+                           <div style="display: none;"><span class="days">9</span><div class="smalltext">Days</div></div>
+                           <div><span class="hours">12</span><div class="smalltext">Hours</div></div>
+                           <div><span class="minutes">14</span><div class="smalltext">Minutes</div></div>
+                           <div><span class="seconds">36</span><div class="smalltext">Seconds</div></div>
+                       </div>
+
+                     </div>
+                     {{/if_eq}} 
+                     {{#if_eq total_ico.status '1'}}
+                        <h1 style="color:orange">Opening</h1>
+                     {{/if_eq}} 
+                     <div class="clearfix" style=""></div>
+                     <p>Total amount: 6.000.000 LEC</p>
+                     <p>Curent Price: {{price_ico}} USD</p>
+                     <p>Quantity bought: {{total_ico.total}} LEC</p>
+                     
+                     <button type="button" style="background: #0a5f7b; padding: 15px;" class="btn btn-social btn-fill btn-twitter  mt3 fs14" data-toggle="modal" data-target="#ModalICO">
+                     <i class="fa  progress-icon fa-bitcoin1" data-icon="fa-bitcoin1" style="margin: -4px;margin-right: 0!important;margin-left: 0px;"></i> Buy Now
+                     </button>
+                     
+                     
+                     
+                     <button type="button" style="background: #0a5f7b" class="btn btn-social btn-fill btn-twitter  mt3 fs14" data-toggle="modal" data-target="#ModalICODetail">
+                     <i class="fa  progress-icon fa-bitcoin1" data-icon="fa-bitcoin1" style="margin: -4px;margin-right: 0!important;margin-left: 0px;
+                     "></i> Information
+                     </button>
+                  </div>
+                     
+
+                  <div class="col-md-4  col-xs-12">
+                     <div class="c100 p{{divinit total_ico.total}} big" style="margin-top: 20px;">
+                        <span>{{div total_ico.total}}%</span>
+                        <div class="slice">
+                           <div class="bar"></div>
+                        <div class="fill"></div>
+                        </div>
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+         </div> -->
+         <div class=" col-md-12  panel-group accordion">
+            <div class="panel" style="border: 1px solid #c2c8d8;">
+               <div class="panel-body" style="margin-top: 0">
+                  <h3>History Buy ICO</h3>
+                  <table id="login_history"  class="table_balance table table-striped table-no-bordered table-hover" style="width:100%;cellspacing:0" >
+                     <thead>
+                        <tr> 
+                           <th>Date</th>
+                           <th>Amount Coin</th>
+                           <th>Amount Payment</th>
+                           
+                           <th>Status</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        {{#each order_history}} 
+                           
+                           <tr>
+                              <td>{{prettifyDate this.date}}</td>
+                              <td>{{satoshi this.amount_coin}} LEC</td>
+                              <td>{{satoshi this.amount_payment}} {{ this.method_payment}}</td>
+                              {{#if_eq this.status '0'}}
+                                <td class="text-center"><span class="label label-warning">Processing</span></td>
+
+                              {{/if_eq}} 
+                              {{#if_eq this.status '1'}}
+                                <td class="text-center"><span class="label label-success">Success</span></td>
+                              {{/if_eq}} 
+                              {{#if_eq this.status '3'}}
+                                <td class="text-center"><span class="label label-danger">Fail</span></td>
+                              {{/if_eq}} 
+                           </tr>
+                          
+                         {{/each}} 
+                     
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+         
+      </div>
+   </div>
+</div>
