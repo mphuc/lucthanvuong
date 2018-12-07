@@ -1,5 +1,5 @@
 module.exports = {
-	port : process.env.PORT || 5989,
+	port : process.env.PORT || 5282,
 	db: process.env.MONGODB || 'mongodb://localhost:27017/lending_lencoin',
 	SECRET_TOKEN: 'miclavedetokens' ,
 
