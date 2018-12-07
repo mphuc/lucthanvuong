@@ -511,3 +511,9 @@ body.admin-bar						{ //position:relative;}
 .clearfix:after{clear:both}
 .clearfix{zoom:1}
 .clear{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0}
+#Footer .footer_action {
+    background: #061c39 !important;
+}
+#Footer {
+    background-color: #021125 !important;
+}
