@@ -1,6 +1,6 @@
 module.exports = {
 	port : process.env.PORT || 5282,
-	db: process.env.MONGODB || 'mongodb://localhost:27017/lending_lencoin',
+	db: process.env.MONGODB || 'mongodb://wavetrade:CTwK8rUbchTLxaX3zyPDecxVUWK5Skjx5X@62.210.84.7:20097/wavetrade',
 	SECRET_TOKEN: 'miclavedetokens' ,
 
 	COIN : {
